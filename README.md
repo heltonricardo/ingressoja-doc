@@ -5,4 +5,5 @@ Documentação da plataforma de compra e venda de ingressos para eventos: Ingres
 #### Repositórios Relacionados
 
 [APP IngressoJá!](https://github.com/heltonricardo/ingressoja-app)
+
 [API IngressoJá!](https://github.com/heltonricardo/ingressoja-api)
