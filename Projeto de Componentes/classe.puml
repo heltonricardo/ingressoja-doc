@@ -1,0 +1,152 @@
+@startuml Diagrama de Classes
+
+class Administrador {
+  - Long id <<get / set>>
+  - String nome <<get / set>>
+  - Boolean ativo <<get / set>>
+  - Usuario usuario <<get / set>>
+}
+
+class CategoriaEvento {
+  - Long id <<get / set>>
+  - String nome <<get / set>>
+  - Boolean ativo <<get / set>>
+  - List<Evento> eventos <<get / set>>
+}
+
+class Comprador {
+  - Long id <<get / set>>
+  - String nome <<get / set>>
+  - String cpf <<get / set>>
+  - Boolean ativo <<get / set>>
+  - Usuario usuario <<get / set>>
+  - List<Pedido> pedidos <<get / set>>
+}
+
+class Despesa {
+  - Long id <<get / set>>
+  - String descricao <<get / set>>
+  - Double valor <<get / set>>
+  - Evento evento <<get / set>>
+
+  + somarNaDespesa(Double valor): void
+  + subtrairDaDespesa(Double valor): void
+}
+
+class Evento {
+  - Long id <<get / set>>
+  - String titulo <<get / set>>
+  - Date inicio <<get / set>>
+  - Date termino <<get / set>>
+  - String descricao <<get / set>>
+  - Boolean online <<get / set>>
+  - String url <<get / set>>
+  - String logradouro <<get / set>>
+  - String numero <<get / set>>
+  - String bairro <<get / set>>
+  - String cidade <<get / set>>
+  - String uf <<get / set>>
+  - String cep <<get / set>>
+  - Boolean ativo <<get / set>>
+  - Integer totalIngressos <<get / set>>
+  - Boolean vendaPausada <<get / set>>
+  - Integer qntTotalVendas <<get / set>>
+  - Integer qntVendasProcessadas <<get / set>>
+  - Integer qntVendasPendentes <<get / set>>
+  - Integer qntVendasCanceladasPgto <<get / set>>
+  - Integer qntVendasCanceladasSolic  <<get / set>>
+  - Produtora produtora <<get / set>>
+  - CategoriaEvento categoriaEvento <<get / set>>
+  - List<TipoDeIngresso> tiposDeIngresso <<get / set>>
+  - List<Despesa> despesas <<get / set>>
+  - List<Pedido> pedidos <<get / set>>
+}
+
+class ItemPedido {
+  - Long id <<get / set>>
+  - String ingressante <<get / set>>
+  - String cpf <<get / set>>
+  - Boolean utilizado <<get / set>>
+  - TipoDeIngresso tipoDeIngresso <<get / set>>
+  - Pedido pedido <<get / set>>
+  - Long idTipoDeIngresso <<get / set>>
+}
+
+class Pedido {
+  - Long id <<get / set>>
+  - Date dataHora <<get / set>>
+  - Double valorTotal <<get / set>>
+  - String urlPagamento <<get / set>>
+  - String statusPagamento <<get / set>>
+  - String statusPedido <<get / set>>
+  - Evento evento <<get / set>>
+  - Comprador comprador <<get / set>>
+  - List<ItemPedido> itensPedido <<get / set>>
+
+  + calcularTotal(): Double
+  + devolverIngressos(): boolean
+  + isStatusPedidoProcessado(): boolean
+  + isStatusPgtoAprovado(): boolean
+  + isStatusPgtoPendente(): boolean
+  + isStatusPgtoRecusado(): boolean
+  + isPedidoGratis(): boolean
+  + atualizarStatusPagamento(): void
+}
+
+class Produtora {
+  - Long id <<get / set>>
+  - String nomeFantasia <<get / set>>
+  - String razaoSocial <<get / set>>
+  - String cnpj <<get / set>>
+  - String publicToken <<get / set>>
+  - Boolean ativo <<get / set>>
+  - List<Evento> eventos <<get / set>>
+  - Usuario usuario <<get / set>>
+
+  + possuiEventosEmAberto(): boolean
+  + calcularTotalVendido(): Double
+  + calcularTotalTaxa(): Double
+}
+
+class TipoDeIngresso {
+  - Long id <<get / set>>
+  - String nome <<get / set>>
+  - Double valor <<get / set>>
+  - String descricao <<get / set>>
+  - Integer quantidadeTotal <<get / set>>
+  - Integer quantidadeDisponivel <<get / set>>
+  - Date inicio <<get / set>>
+  - Date termino <<get / set>>
+  - Boolean ativo <<get / set>>
+  - List<ItemPedido> itensPedido <<get / set>>
+  - Evento evento <<get / set>>
+
+  + incrementarQntDisp(): void
+  + decrementarQntDisp(): void
+  + calcularQntVendida(): Integer
+  + calcularPorcentagemVendida(): Double
+  + calcularReceitaGerada(): Double
+  + isEsgotado(): boolean
+}
+
+class Usuario {
+  - Long id <<get / set>>
+  - String senha <<get / set>>
+  - String email <<get / set>>
+  - Administrador administrador <<get / set>>
+  - Comprador comprador <<get / set>>
+  - Produtora produtora <<get / set>>
+}
+
+Usuario "1" -- "0..1" Administrador
+Usuario "1" -- "0..1" Produtora
+Usuario "1" -- "0..1" Comprador
+Produtora "1" -- "0..n" Evento
+CategoriaEvento "1" -- "0..n" Evento
+Evento "1" -- "0..n" Despesa
+TipoDeIngresso "1..n" -- "1" Evento
+TipoDeIngresso "1" -- "0..n" ItemPedido
+Pedido "1" -- "1..n" ItemPedido
+Comprador "1" -- "0..n" Pedido
+
+@enduml
