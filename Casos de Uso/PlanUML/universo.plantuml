@@ -1,0 +1,37 @@
+@startuml Universo
+
+left to right direction
+
+actor Administrador as A   #FFA500;line:FFA500;line.bold;text:FFA500
+actor Comprador as C       #4DC937;line:4DC937;line.bold;text:4DC937
+actor Produtora as P       #0000FF;line:0000FF;line.bold;text:0000FF
+actor :Usuário Comum: as U #FF1493;line:FF1493;line.bold;text:FF1493
+
+rectangle "Namespace: Universo" #EEE {
+  rectangle "Namespace: Todos" as pacoteTodos #6F6F94;text:EEE
+  rectangle "Namespace: Usuário Comum" as pacoteComum #946F6F;text:EEE
+  rectangle "Namespace: Administrador,\nComprador e Produtora" as pacoteTres #6F946F;text:EEE
+  rectangle "Namespace: Comprador\ne Produtora" as pacoteDois #94738A;text:EEE
+  rectangle "Namespace: Administrador" as pacoteAdministrador #948D6F;text:EEE
+  rectangle "Namespace: Comprador" as pacoteComprador #828294;text:EEE
+  rectangle "Namespace: Produtora" as pacoteProdutora #6F7B6F;text:EEE
+}
+
+A --- pacoteTres          #line:FFA500;line.bold
+A --- pacoteTodos         #line:FFA500;line.bold
+A --- pacoteAdministrador #line:FFA500;line.bold
+
+pacoteDois --- C          #line:4DC937;line.bold
+pacoteTres --- C          #line:4DC937;line.bold
+pacoteTodos --- C         #line:4DC937;line.bold
+pacoteComprador --- C     #line:4DC937;line.bold
+
+P --- pacoteDois          #line:0000FF;line.bold
+P --- pacoteTres          #line:0000FF;line.bold
+P --- pacoteTodos         #line:0000FF;line.bold
+P --- pacoteProdutora     #line:0000FF;line.bold
+
+pacoteComum --- U         #line:FF1493;line.bold
+pacoteTodos --- U         #line:FF1493;line.bold
+
+@enduml

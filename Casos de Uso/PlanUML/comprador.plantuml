@@ -1,0 +1,11 @@
+@startuml Comprador
+
+rectangle "Namespace: Comprador" #828294 {
+  usecase (CSU-22: Efetuar pedido) #EEE;line:000
+  usecase (CSU-23: Listar\npróprios pedidos) #EEE;line:000
+  usecase (CSU-24: Exibir\ndetalhes de pedido) #EEE;line:000
+  usecase (CSU-25: Cancelar\npedido) #EEE;line:000
+  usecase (CSU-26: Ver/Imprimir\ningressos de pedido) #EEE;line:000
+}
+
+@enduml

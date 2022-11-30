@@ -1,0 +1,8 @@
+@startuml Comum
+
+rectangle "Namespace: Usuário Comum" #946F6F {
+  usecase (CSU-06: Cadastrar\ncomprador) #EEE;line:000
+  usecase (CSU-07: Cadastrar\nprodutora) #EEE;line:000
+}
+
+@enduml

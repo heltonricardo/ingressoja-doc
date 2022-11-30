@@ -1,0 +1,16 @@
+@startuml Administrador
+
+rectangle "Namespace: Administrador" #948D6F {
+  usecase (CSU-12: Listar\nadministradores) #EEE;line:000
+  usecase (CSU-13: Excluir\nadministrador) #EEE;line:000
+  usecase (CSU-14: Cadastrar\nadministrador) #EEE;line:000
+  usecase (CSU-15: Listar\ncompradores) #EEE;line:000
+  usecase (CSU-16: Listar\nprodutoras) #EEE;line:000
+  usecase (CSU-17: Listar\ncategorias de evento) #EEE;line:000
+  usecase (CSU-18: Editar\ncategoria de evento) #EEE;line:000
+  usecase (CSU-19: Inativar/Reativar\ncategoria de evento)  #EEE;line:000
+  usecase (CSU-20: Cadastrar\ncategoria de evento) #EEE;line:000
+  usecase (CSU-21: Emitir relatórios\nadministrativos) #EEE;line:000
+}
+
+@enduml

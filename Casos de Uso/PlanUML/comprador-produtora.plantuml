@@ -1,0 +1,7 @@
+@startuml Comprador e Produtora
+
+rectangle "Namespace: Comprador e Produtora" #94738A {
+  usecase (CSU-11: Excluir próprio usuário) #EEE;line:000
+}
+
+@enduml

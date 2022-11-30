@@ -1,0 +1,11 @@
+@startuml Todos
+
+rectangle "Namespace: Todos" #6F6F94 {
+  usecase (CSU-01: Listar todos \nos eventos) #EEE;line:000
+  usecase (CSU-02: Pesquisar por\nnome de evento) #EEE;line:000
+  usecase (CSU-03: Filtrar por\ncategoria de evento) #EEE;line:000
+  usecase (CSU-04: Verificar\num ingresso) #EEE;line:000
+  usecase (CSU-05: Exibir\ndados de evento) #EEE;line:000
+}
+
+@enduml

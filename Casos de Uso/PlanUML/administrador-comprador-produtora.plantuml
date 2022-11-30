@@ -1,0 +1,9 @@
+@startuml Administrador Comprador e Produtora
+
+rectangle "Namespace: Administrador, Comprador e Produtora" #6F946F {
+  usecase (CSU-08: Efetuar login) #EEE;line:000
+  usecase (CSU-09: Exibir dados\ndo próprio usuário) #EEE;line:000
+  usecase (CSU-10: Editar dados\ndo próprio usuário) #EEE;line:000
+}
+
+@enduml

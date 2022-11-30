@@ -1,0 +1,16 @@
+@startuml Produtora
+
+rectangle "Namespace: Produtora" #6F7B6F {
+  usecase (CSU-27: Listar próprios eventos) #EEE;line:000
+  usecase (CSU-28: Editar evento) #EEE;line:000
+  usecase (CSU-29: Excluir evento) #EEE;line:000
+  usecase (CSU-30: Cadastrar evento) #EEE;line:000
+  usecase (CSU-31: Listar despesas\nde evento) #EEE;line:000
+  usecase (CSU-32: Excluir despesa) #EEE;line:000
+  usecase (CSU-33: Cadastrar despesa) #EEE;line:000
+  usecase (CSU-34: Pausar/Retomar\nvendas de ingresso) #EEE;line:000
+  usecase (CSU-35: Realizar\ncheck-in de ingresso) #EEE;line:000
+  usecase (CSU-36: Emitir\nrelatórios de evento) #EEE;line:000
+}
+
+@enduml
